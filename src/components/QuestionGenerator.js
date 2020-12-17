@@ -7,6 +7,13 @@ import Question from './Question.js'
  */
 import data from './data/questions.json';
 
+// Whether the question should start updating at certain time of day
+var hasCertainStartTime = true;
+// Next update of the question:
+//               h   m
+var firstTime = [16, 37];
+// interval in millieseconds update of the question
+var interval = 1000;
 
  class QuestionGenerator extends React.Component {
     constructor(props) {
@@ -30,6 +37,23 @@ import data from './data/questions.json';
         }));
     }
 
+    calculateIntervalNextDateUpdate() {
+        var currentDate = new Date();
+        var nextDate = new Date(currentDate.getFullYear(), 
+        currentDate.getMonth(), currentDate.getDate(), 
+        firstTime[0], firstTime[1], 0, 0);
+
+        nextDate = nextDate.getTime();
+
+        // Calculate time in milliseconds until next start time
+        if (currentDate.getHours() > firstTime[0] ||
+        currentDate.getMinutes() >= firstTime[1]) {
+            nextDate = nextDate + 86400000;
+        }
+
+        return nextDate - currentDate.getTime();
+    }
+
     componentDidMount() {
         this.client.getEntries({
             'content_type': 'question',
@@ -40,7 +64,14 @@ import data from './data/questions.json';
             }))
             console.log(entry.items[0]);
         });
-        this.interval = setInterval(() => this.changeQuestion(), 1000);
+        if (hasCertainStartTime) {
+            var nextUpdate = this.calculateIntervalNextDateUpdate();
+            this.timeout = setTimeout(() => this.changeQuestion(), nextUpdate);
+            this.timeout = setTimeout(() => this.interval = setInterval(
+                () => this.changeQuestion(), interval), nextUpdate);
+        } else {
+            this.interval = setInterval(() => this.changeQuestion(), interval);
+        }
     }
 
     componentWillUnmount() {
