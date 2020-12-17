@@ -31,10 +31,6 @@ class Tab extends React.Component {
   }
 
   render() {
-
-    
-      let userName = Object.keys(this.state.context).length > 0 ? this.state.context['upn'] : "";
-
       return (
       <div>
         <QuestionGenerator />

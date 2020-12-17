@@ -9,54 +9,44 @@ import data from './data/questions.json';
 
 
  class QuestionGenerator extends React.Component {
-//   constructor(props){
-//     super(props)
-//     this.state = {
-//       seconds: {}
-//     }
-//   }
+    constructor(props) {
+        super(props);
+        this.state = {
+            questions: [],
+            question: data.questions[0].value
+        };
+        var contentful = require("contentful");
+        this.client = contentful.createClient({
+            // This is the space ID. A space is like a project folder in Contentful terms
+            space: "y1b6nxbk9ebk",
+            // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+            accessToken: "wRs4nqUwJmy6FLbdAgcC_ndLTxY4Fum2XrK0SWjPd8o"
+        });
+    }
 
-//   render() {
-//     Date.now();
+    changeQuestion() {
+        // Math.floor(Math.random() * 10)
+        // this.setState(state => ({
+        //     question: this.state.questions[0].field.value
+        // }));
+    }
 
-//     let question = data.questions[1].value;
+    componentDidMount() {
+        this.client.getEntries({
+            'content_type': 'question',
+            'include': 2
+        }).then((entry) => {
+            this.setState(state => ({
+                questions: entry.items
+            }))
+            console.log(entry.items[0]);
+        });
+        this.interval = setInterval(() => this.changeQuestion(), 1000);
+    }
 
-//     return (
-//         <Question question={question}/>
-//     );
-//   }
-
-
-  constructor(props) {
-    super(props);
-    this.state = {
-        question: data.questions[0].value
-    };
-  }
-
-  changeQuestion() {
-    this.setState(state => ({
-      question: data.questions[Math.floor(Math.random() * 10)].value
-    }));
-  }
-
-  componentDidMount() {
-    this.interval = setInterval(() => this.changeQuestion(), 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-//   formatTime(secs) {
-//     let hours   = Math.floor(secs / 3600);
-//     let minutes = Math.floor(secs / 60) % 60;
-//     let seconds = secs % 60;
-//     return [hours, minutes, seconds]
-//         .map(v => ('' + v).padStart(2, '0'))
-//         .filter((v,i) => v !== '00' || i > 0)
-//         .join(':');
-//   }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
 
   render() {
     return (
