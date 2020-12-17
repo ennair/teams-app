@@ -27,12 +27,13 @@ class Chat extends React.Component {
         this.setState({
             answers
         });
+        this.state.answer = '';
       event.preventDefault();
     }
   
     render() {
       return (
-          <div>
+          <div className="chat">
                 {this.state.answers && this.state.answers && this.state.answers.map((answer, index) => (
                   <p key={index}>{answer}</p>
                 ))}
