@@ -1,0 +1,45 @@
+{ 
+    "questions": [
+        {
+            "id": 1,
+            "value": "Wat was je beste kerst ooit?"
+        },
+        {
+            "id": 2,
+            "value": "Als je een glazen bol had, wat zou je daar graag in willen zien?"
+        },
+        {
+            "id": 3,
+            "value": "Als je één ding uit je verleden kon aanpassen wat zou het dan zijn?"
+        },
+        {
+            "id": 4,
+            "value": "Als je een eigen bedrijf zou starten, wat zou je dan verkopen?"
+        },
+        {
+            "id": 5,
+            "value": "Als je een superheld was, wie zou je dan zijn?"
+        },
+        {
+            "id": 6,
+            "value": "Als je iemand anders kon zijn, wie zou je dan willen zijn?"
+        },
+        {
+            "id": 7,
+            "value": "Als je iets tegen de wereld zou kunnen zeggen, wat zou het zijn?"
+        },
+        {
+            "id": 8,
+            "value": "Als je nog maar één serie zou mogen kijken, welke zou je kiezen?"
+        },
+        {
+            "id": 9,
+            "value": "Als je onsterfelijk zou zijn voor 1 dag, wat zou je dan doen?"
+        },
+        {
+            "id": 10,
+            "value": "Als jij je eigen naam kon kiezen, hoe zou je dan heten?"
+        }
+    ]
+    
+}

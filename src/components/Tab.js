@@ -3,7 +3,7 @@
 
 import React from 'react';
 import './App.css';
-import Question from './Question.js'
+import QuestionGenerator from './QuestionGenerator.js'
 import * as microsoftTeams from "@microsoft/teams-js";
 
 /**
@@ -37,10 +37,7 @@ class Tab extends React.Component {
 
       return (
       <div>
-        <Question />
-
-        <h3>Hello World!</h3>
-        <h1>Congratulations {userName}!</h1> <h3>This is the tab you made :-)</h3>
+        <QuestionGenerator />
       </div>
       );
   }
