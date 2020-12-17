@@ -22,7 +22,7 @@ Start debugging the project by hitting the `F5` key or click the debug icon in V
 On the first time running and debugging your app you need allow the localhost certificate.  After starting debugging when Chrome is launched and you have installed your app it will fail to load.
 
 - Open a new tab `in the same browser window that was opened`
-- Navigate to `https://localhost:3000/tab`
+- Navigate to `https://localhost:3000/teams-app#/tab/`
 - Click the `Advanced` button
 - Select the `Continue to localhost`
 

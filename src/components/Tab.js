@@ -5,6 +5,7 @@ import React from 'react';
 import './App.css';
 import QuestionGenerator from './QuestionGenerator.js'
 import Chat from './Chat.js'
+import Logo from './Logo.js'
 import * as microsoftTeams from "@microsoft/teams-js";
 
 /**
@@ -48,6 +49,7 @@ class Tab extends React.Component {
   render() {
       return (
       <div className="tab">
+        <Logo />
         <QuestionGenerator clearAnswers={this.clearAnswers.bind(this)} />
         <Chat answers={this.state.answers} addAnswer={this.addAnswer.bind(this)} />
       </div>
