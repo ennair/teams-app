@@ -7,7 +7,7 @@ import './App.css';
 
 export default function Question({ question }) {
     return(
-        <div>
+        <div class="question">
             <h1>{question}</h1>
         </div>
     );
