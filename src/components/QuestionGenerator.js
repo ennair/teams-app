@@ -25,10 +25,9 @@ import data from './data/questions.json';
     }
 
     changeQuestion() {
-        // Math.floor(Math.random() * 10)
-        // this.setState(state => ({
-        //     question: this.state.questions[0].field.value
-        // }));
+        this.setState(state => ({
+            question: this.state.questions[Math.floor(Math.random() * this.state.questions.length)].fields.value
+        }));
     }
 
     componentDidMount() {
