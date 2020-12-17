@@ -9,7 +9,6 @@ class Chat extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-          answers: [],
           answer: ''
         };
   
@@ -22,19 +21,17 @@ class Chat extends React.Component {
     }
   
     handleSubmit(event) {
-        let answers = this.state.answers;
-        answers.push(this.state.answer);
-        this.setState({
-            answers
-        });
-        this.state.answer = '';
+      this.props.addAnswer(this.state.answer);
+      this.setState({
+          answer: ''
+      });
       event.preventDefault();
     }
   
     render() {
       return (
           <div className="chat">
-                {this.state.answers && this.state.answers && this.state.answers.map((answer, index) => (
+                {this.props.answers && this.props.answers && this.props.answers.map((answer, index) => (
                   <p key={index}>{answer}</p>
                 ))}
              

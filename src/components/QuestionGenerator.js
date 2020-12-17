@@ -28,6 +28,8 @@ import data from './data/questions.json';
         this.setState(state => ({
             question: this.state.questions[Math.floor(Math.random() * this.state.questions.length)].fields.value
         }));
+
+        this.props.clearAnswers();
     }
 
     componentDidMount() {
@@ -40,7 +42,7 @@ import data from './data/questions.json';
             }))
             console.log(entry.items[0]);
         });
-        this.interval = setInterval(() => this.changeQuestion(), 1000);
+        this.interval = setInterval(() => this.changeQuestion(), 15000);
     }
 
     componentWillUnmount() {
