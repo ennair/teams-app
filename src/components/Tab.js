@@ -4,6 +4,7 @@
 import React from 'react';
 import './App.css';
 import QuestionGenerator from './QuestionGenerator.js'
+import Chat from './Chat.js'
 import * as microsoftTeams from "@microsoft/teams-js";
 
 /**
@@ -34,6 +35,7 @@ class Tab extends React.Component {
       return (
       <div>
         <QuestionGenerator />
+        <Chat />
       </div>
       );
   }

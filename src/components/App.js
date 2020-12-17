@@ -20,6 +20,17 @@ function App() {
   // Initialize the Microsoft Teams SDK
   microsoftTeams.initialize();
 
+  microsoftTeams.settings.setSettings({
+      contentUrl: "https://ennair.github.io/teams-app/#/tab", // Mandatory parameter
+      entityId: "https://ennair.github.io/teams-app/#/tab", // Mandatory parameter
+  });
+
+  microsoftTeams.settings.setValidityState(true);
+
+  microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+    saveEvent.notifySuccess();
+  });
+
   // Display the app home page hosted in Teams
   return (
     <Router>
