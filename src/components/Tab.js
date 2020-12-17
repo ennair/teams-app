@@ -33,7 +33,7 @@ class Tab extends React.Component {
 
   render() {
       return (
-      <div>
+      <div className="tab">
         <QuestionGenerator />
         <Chat />
       </div>
