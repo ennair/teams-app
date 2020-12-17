@@ -3,6 +3,7 @@
 
 import React from 'react';
 import './App.css';
+import Question from './Question.js'
 import * as microsoftTeams from "@microsoft/teams-js";
 
 /**
@@ -31,10 +32,13 @@ class Tab extends React.Component {
 
   render() {
 
+    
       let userName = Object.keys(this.state.context).length > 0 ? this.state.context['upn'] : "";
 
       return (
       <div>
+        <Question />
+
         <h3>Hello World!</h3>
         <h1>Congratulations {userName}!</h1> <h3>This is the tab you made :-)</h3>
       </div>
