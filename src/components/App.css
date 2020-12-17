@@ -26,4 +26,22 @@ h2 {
 }
 .chat {
   padding: 20px;
+  border: 3px solid #c70000;
+  border-radius: 16px;
+}
+.chat input[type="text"] {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.chat input[type="submit"] {
+  background-color: #0070ad;
+  color: white;
+  padding: 5px 10px;
+}
+.chat label {
+  color: #0070ad;
+  font-weight: bold;
+}
+.chat p {
+  color: #0070ad;
 }
