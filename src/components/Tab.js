@@ -15,8 +15,22 @@ class Tab extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      context: {}
+      context: {},
+      answers: [],
     }
+  }
+
+  clearAnswers(){
+    this.setState({
+      answers: []
+    });
+  }
+  addAnswer(answer){
+    let answers = this.state.answers;
+    answers.push(answer);
+    this.setState({
+        answers: answers,
+    });
   }
 
   //React lifecycle method that gets called once a component has finished mounting
@@ -34,8 +48,8 @@ class Tab extends React.Component {
   render() {
       return (
       <div className="tab">
-        <QuestionGenerator />
-        <Chat />
+        <QuestionGenerator clearAnswers={this.clearAnswers.bind(this)} />
+        <Chat answers={this.state.answers} addAnswer={this.addAnswer.bind(this)} />
       </div>
       );
   }
